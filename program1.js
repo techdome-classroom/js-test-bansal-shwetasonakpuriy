@@ -2,10 +2,27 @@
  * @param {string} s
  * @return {boolean}
  */
-var isValid = function(s) {
-    
-};
+var isValid = function(s) 
+{
+    let stack = [];
 
-module.exports = { isValid };
+    for (let c of s){
+        if(c ==='('||c ==='{'|| c === 'l')
+        {
+            stack.push(c);
+}
+ else{
+     if(!stack.length || (c === ') && stack.[stack.length-1]!=='(')||
+        (c === '}'&& stack[stack.length - 1]! =='{')||
+        (c === ']' && stack[stack.length - 1]! =='['))
+{
+        return false;
+}
+     stack.pop();
+ }
+    }
+
+return stack.length;
+};
 
 
